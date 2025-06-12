@@ -1,0 +1,139 @@
+# 📚 BookStore Django REST API
+
+A Django-based BookStore REST API using PostgreSQL, Docker, and Django REST Framework. Includes user authentication, book and author management, middleware logging, signals for email notifications, and containerized setup for easy deployment. The apps are:
+
+- **User** Basic user.
+- **Book** To manage all the book releted to the author(CRUD , etc).
+
+---
+
+## 🚀 GitHub Repository
+
+🔗 https://github.com/shilpasasidharan97/BookStore
+
+---
+
+## 📋 Features
+
+- User Registration and Login (Token-based auth (JWT))
+- CRUD APIs for Book
+- List Books by Author
+- Middleware for logging requests
+- Signals for sending welcome email
+- PostgreSQL integration
+- Dockerized setup
+
+---
+
+
+
+
+## 🛠️ Setup Instructions
+
+### 📌 Table of Contents
+- [Clone the Repository](#Clone-The-Repository)
+- [Create a Virtual Environment](#Create-a-Virtual-Environment)
+- [Setup Environment Variables](#Setup-Environment-Variables)
+- [Install Dependencies](#Install-Dependencies)
+- [Create Log File](#Create-Log-File)
+- [Run the Application](#Run-the-application)
+- [Development Commands](#Development-Commands)
+  - [Add a Dependency](#Add-a-Dependency)
+  - [Database: Migrations & Superuser](#Add-Migration-and-Superuser)
+  - [Development Utilities](#Development-Utilities)
+  - [Run Tests](#Run-Tests)
+
+
+---
+
+## Clone-The-Repository
+Clone the repository to your local machine and navigate into the project directory:
+```bash
+git clone https://github.com/shilpasasidharan97/BookStore.git
+cd BookStore
+```
+
+## Create-a-Virtual-Environment
+Create and activate a virtual environment to isolate your dependencies.
+```bash
+virtualenv .venv
+source .venv/bin/activate  # On Windows: .venv\Scriptsctivate
+```
+
+## Setup-Environment-Variables
+Before running the application, you need to create a .env file for environment variables. You can do this by copying the example file:
+```bash
+cp .env.example .env
+```
+Once copied, open .env and update the necessary variables according to your local setup.
+
+## Install-Dependencies
+Install all required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Create-Log-File
+Request logs are stored at:
+```bash
+logs/requests.log
+```
+Ensure logs/ folder exists and is writable. If missing, create it manually:
+
+```bash
+mkdir logs
+touch logs/requests.log
+```
+
+
+## Run-the-application
+Best way to run the project in docker
+```bash
+docker compose up -d --build
+```
+
+## Development-Commands
+Once the containers are up, run management commands like so:
+
+### Add-a-Dependency
+```bash
+docker-compose exec web pip install <package-name>
+docker-compose exec web pip freeze > requirements.txt
+```
+Rebuild the image (only if you edited requirements.txt outside the container):
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
+### Add-Migration-and-Superuser
+
+Make migrations (create new migrations based on model changes):
+
+```bash
+docker-compose exec web python manage.py makemigrations
+```
+Apply migrations (create/update tables in the database):
+
+```bash
+docker-compose exec web python manage.py migrate
+```
+
+Create Django superuser for admin access:
+```bash
+docker-compose exec web python manage.py createsuperuser
+```
+
+
+### Development-Utilities
+Open Django shell inside Docker (Useful for testing logic or database queries interactively):
+```bash
+docker-compose exec web python manage.py shell
+```
+
+### Run-Tests
+Run Django tests:
+```bash
+docker-compose exec web python manage.py test
+```
