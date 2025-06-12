@@ -1,0 +1,69 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.db
+db.sqlite3
+
+# Media & static (if you collectstatic locally or generate media)
+media/
+staticfiles/
+
+# VS Code settings
+.vscode/
+
+# Pytest, coverage, and testing stuff
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Migrations (optional to ignore, but generally you keep them in git)
+# Comment this out if you want migrations tracked
+# */migrations/
+# !*/migrations/__init__.py
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+*.pid
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# dotenv files
+.env
+.env.*
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyright
+pyrightconfig.json
