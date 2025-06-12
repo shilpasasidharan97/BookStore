@@ -138,3 +138,8 @@ Run Django tests:
 ```bash
 docker-compose exec web python manage.py test
 ```
+
+
+### POSTMAN API Collection Link
+
+🔗 https://documenter.getpostman.com/view/28307864/2sB2x6kWx8
